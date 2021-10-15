@@ -1,11 +1,13 @@
-// triple slach directive for "cannot find name 'google'.ts" error
+// triple slash directive for "cannot find name 'google'" error
 /// <reference types="@types/google.maps" />
 
+import { Map } from './Map';
 import { User } from './User';
-import { Company } from './Company';
+
+// import { User } from './User';
+// import { Company } from './Company';
 
 const user = new User();
-const company = new Company();
+const map = new Map('map');
 
-console.log(user);
-console.log(company);
+map.addMarker(user)
