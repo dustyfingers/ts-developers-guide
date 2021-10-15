@@ -1,11 +1,11 @@
-import { User } from './User';
-import { Company } from './Company';
-
+// this interface informs other classes/objects
+// how they can be an argument to addMarker
 interface Markable {
   location: {
     lat: number;
     lng: number;
   };
+  markerContent(): string;
 }
 
 export class Map {
@@ -16,10 +16,20 @@ export class Map {
     this.googleMap = new google.maps.Map(document.getElementById(divId), { zoom: 1, center: { lat: 0, lng: 0 }});
   }
 
-  addMarker(item: Markable) {
-    new google.maps.Marker({
+  addMarker(item: Markable): void {
+    const marker = new google.maps.Marker({
       map: this.googleMap,
       position: item.location
     })
+
+    marker.addListener('click', () => {
+      const infoWindow = new google.maps.InfoWindow({
+        content: item.markerContent()
+      })
+
+      infoWindow.open(this.googleMap, marker)
+    })
   }
+
+
 }

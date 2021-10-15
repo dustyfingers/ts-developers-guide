@@ -8,6 +8,10 @@ export class Company {
     lng: number;
   };
 
+  markerContent(): string {
+    return `Company: ${this.companyName}`;
+  }
+
   constructor() {
     this.companyName = faker.company.companyName();
     this.catchPhrase = faker.company.catchPhrase();
