@@ -1,11 +1,12 @@
 // this interface informs other classes/objects
 // how they can be an argument to addMarker
-interface Markable {
+export interface Markable {
   location: {
     lat: number;
     lng: number;
   };
   markerContent(): string;
+  color: string;
 }
 
 export class Map {

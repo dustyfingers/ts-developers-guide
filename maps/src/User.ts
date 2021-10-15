@@ -1,11 +1,13 @@
 import faker from 'faker';
+import { Markable } from './Map';
 
-export class User {
+export class User implements Markable {
   name: string;
   location: {
     lat: number;
     lng: number;
   };
+  color: string = 'blue';
 
   constructor() {
     this.name = `${faker.name.firstName()} ${faker.name.lastName()}`;

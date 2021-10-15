@@ -1,12 +1,14 @@
 import faker from 'faker';
+import { Markable } from './Map';
 
-export class Company {
+export class Company implements Markable {
   companyName: string;
   catchPhrase: string;
   location: {
     lat: number;
     lng: number;
   };
+  color: string = 'red';
 
   markerContent(): string {
     return `Company: ${this.companyName}`;
