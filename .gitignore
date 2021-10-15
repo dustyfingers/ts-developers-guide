@@ -3,3 +3,6 @@ node_modules/
 # parcel build files
 .cache/
 dist/
+
+# ts build files
+build/*
